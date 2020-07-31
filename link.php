@@ -15,7 +15,7 @@
 			<li class="divider-vertical"></li>
 		<li><a href="about.php"><i class="icon-info-sign"></i>&nbsp;About</a></li>
 			<li class="divider-vertical"></li>
-		<li><a href="events.php"><i class="icon-calendar"></i>&nbsp;Calendar of Events</a></li>
+		<li><a href="myevents.php"><i class="icon-calendar"></i>&nbsp;Calendar of Events</a></li>
 			<li class="divider-vertical"></li>
 		<li><a href="history.php"><i class="icon-file"></i>&nbsp;History</a></li>
 			<li class="divider-vertical"></li>
