@@ -22,8 +22,8 @@
                                 <div class="span12">
   								<div class="alert alert-info"><i class="icon-info-sign"></i> Please Fill in required details</div>
 								<?php
-								$query = mysql_query("select * from tbluser where user_id = '$session_id'")or die(mysql_error());
-								$row = mysql_fetch_array($query);
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from tbluser where user_id = '$session_id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+								$row = mysqli_fetch_array($query);
 								?>								
 										
 								    <form  method="post" id="change_password" class="form-horizontal">

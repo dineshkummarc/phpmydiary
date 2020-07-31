@@ -8,8 +8,8 @@ $class_id = $_POST['teacher_class_id'];
 $N = count($id);
 for($i=0; $i < $N; $i++)
 {
-	$result = mysql_query("select * from files  where file_id = '$id[$i]' ")or die(mysql_error());
-	while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], "select * from files  where file_id = '$id[$i]' ")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	while($row = mysqli_fetch_array($result)){
 	
 	$fname = $row['fname'];
 	$floc = $row['floc'];
@@ -18,7 +18,7 @@ for($i=0; $i < $N; $i++)
 
 	
 	
-	mysql_query("insert into files (floc,fdatein,fdesc,class_id,fname,uploaded_by) value('$floc',NOW(),'$fdesc','$class_id','$fname','$uploaded_by')")or die(mysql_error());
+	mysqli_query($GLOBALS["___mysqli_ston"], "insert into files (floc,fdatein,fdesc,class_id,fname,uploaded_by) value('$floc',NOW(),'$fdesc','$class_id','$fname','$uploaded_by')")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	
 	}
@@ -36,8 +36,8 @@ $id=$_POST['selector'];
 $N = count($id);
 for($i=0; $i < $N; $i++)
 {
-	$result = mysql_query("select * from files  where file_id = '$id[$i]' ")or die(mysql_error());
-	while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], "select * from files  where file_id = '$id[$i]' ")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	while($row = mysqli_fetch_array($result)){
 	
 
 		$fname = $row['fname'];
@@ -45,7 +45,7 @@ for($i=0; $i < $N; $i++)
 	$fdesc = $row['fdesc'];
 
 	
-	mysql_query("insert into teacher_backpack (floc,fdatein,fdesc,teacher_id,fname) value('$floc',NOW(),'$fdesc','$session_id','$fname')")or die(mysql_error());
+	mysqli_query($GLOBALS["___mysqli_ston"], "insert into teacher_backpack (floc,fdatein,fdesc,teacher_id,fname) value('$floc',NOW(),'$fdesc','$session_id','$fname')")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	
 	}
@@ -66,8 +66,8 @@ echo $teacher_id ;
 $N = count($id);
 for($i=0; $i < $N; $i++)
 {
-	$result = mysql_query("select * from files  where file_id = '$id[$i]' ")or die(mysql_error());
-	while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], "select * from files  where file_id = '$id[$i]' ")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	while($row = mysqli_fetch_array($result)){
 	
 
 		$fname = $row['fname'];
@@ -75,7 +75,7 @@ for($i=0; $i < $N; $i++)
 	$fdesc = $row['fdesc'];
 
 	
-	mysql_query("insert into teacher_shared (floc,fdatein,fdesc,teacher_id,fname,shared_teacher_id) value('$floc',NOW(),'$fdesc','$session_id','$fname','$teacher_id')")or die(mysql_error());
+	mysqli_query($GLOBALS["___mysqli_ston"], "insert into teacher_shared (floc,fdatein,fdesc,teacher_id,fname,shared_teacher_id) value('$floc',NOW(),'$fdesc','$session_id','$fname','$teacher_id')")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	
 	}

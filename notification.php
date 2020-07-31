@@ -27,10 +27,10 @@ if(isset($_GET["id"])){
                             </div>
                             <div class="block-content collapse in">
 								<?php
-								$query = mysql_query("select * from event where user_id = '$session_id'")or die(mysql_error());
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where user_id = '$session_id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 								?>
                                 <div class="span12"  style="width:auto">
-									<?php while($row = mysql_fetch_array($query)){ 
+									<?php while($row = mysqli_fetch_array($query)){ 
 									$notes = $row['note'];
 									$n = explode("VENUE::",$notes);
 									$msg = $n[1];

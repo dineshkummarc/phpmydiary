@@ -38,13 +38,13 @@
 										</ul>
 									
 									<?php
-								 $query_announcement = mysql_query("select * from message
+								 $query_announcement = mysqli_query($GLOBALS["___mysqli_ston"], "select * from message
 																	LEFT JOIN tbluser ON tbluser.user_id = message.sender_id
 																	where  message.reciever_id = '$session_id' order by date_sended DESC
-																	")or die(mysql_error());
-								$count_my_message = mysql_num_rows($query_announcement);	
+																	")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+								$count_my_message = mysqli_num_rows($query_announcement);	
 								if ($count_my_message != '0'){
-								 while($row = mysql_fetch_array($query_announcement)){	
+								 while($row = mysqli_fetch_array($query_announcement)){	
 								 $id = $row['message_id'];
 								 								 $id_2 = $row['message_id'];
 								 $status = $row['message_status'];

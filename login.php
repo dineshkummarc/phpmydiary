@@ -5,9 +5,9 @@
 		$password = $_POST['password'];
 		/* user */
 			$query = "SELECT * FROM tbluser WHERE username='$username' AND password='$password'";
-			$result = mysql_query($query)or die(mysql_error());
-			$row = mysql_fetch_array($result);
-			$num_row = mysql_num_rows($result);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $query)or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+			$row = mysqli_fetch_array($result);
+			$num_row = mysqli_num_rows($result);
 		if( $num_row > 0 ) { 
 		$_SESSION['id']=$row['user_id'];
 		echo 'true';	

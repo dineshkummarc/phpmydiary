@@ -21,8 +21,8 @@
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
 								<?php
-								$query = mysql_query("select * from event where user_id = '$id'")or die(mysql_error());
-									$count = mysql_num_rows($query);
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where user_id = '$id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									$count = mysqli_num_rows($query);
 								?>
                                 <div id="" class="muted"><span class="muted pull-left">ALL EVENT IN RECORDES </span><span class="muted  pull-right badge badge-info"><?php echo $count; ?></span></div>
                             </div>
@@ -30,7 +30,7 @@
                                 <div class="span12">
 									<div class="pull-left">
 									<?php
-									while($row = mysql_fetch_array($query)){
+									while($row = mysqli_fetch_array($query)){
 									?>
 									<div class="alert"><i class="icon-list"></i> <?php echo strtoupper(substr($row['event_title'], 0, 30-2) . '&#133'); ?></div>
 									<?php } ?>

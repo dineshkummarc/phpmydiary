@@ -27,8 +27,8 @@ if(isset($_GET["id"])){
                             </div>
                             <div class="block-content collapse in">
 								<?php
-								$query = mysql_query("select * from event where event_id = '$id'")or die(mysql_error());
-									$row = mysql_fetch_array($query);
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where event_id = '$id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									$row = mysqli_fetch_array($query);
 								?>
                                 <div class="span12">
   								<div class="alert alert-info"><i class="icon-info"></i> <?php echo  $row["event_title"] ?></div>

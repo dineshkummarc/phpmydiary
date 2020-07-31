@@ -2,12 +2,12 @@
 <?php
 if (isset($_GET['event'])){
 $event_id = $_GET['event'];
-	$query = mysql_query("select * from  event where event_id=$event_id")or die(mysql_error());
-	$row = mysql_fetch_array($query);
+	$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from  event where event_id=$event_id")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$row = mysqli_fetch_array($query);
 	$date_start = $row['date_start'];
 	$date_end = $row['date_end'];
 	$title = $row['event_title'];
-	$note = mysql_real_escape_string($row['note']);
+	$note = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $row['note']);
 	
 	$n = explode("VENUE::",$note);
 	$venue = $n[1];
@@ -37,8 +37,8 @@ $event_id = $_GET['event'];
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
 								<?php
-								$query = mysql_query("select * from event where user_id = '$id'")or die(mysql_error());
-									$count = mysql_num_rows($query);
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where user_id = '$id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									$count = mysqli_num_rows($query);
 								?>
                                 <div id="" class="muted"><span class="muted pull-left">ALL EVENT IN RECORDES </span><span class="muted  pull-right badge badge-info"><?php echo $count; ?></span></div>
                             </div>
@@ -46,7 +46,7 @@ $event_id = $_GET['event'];
                                 <div class="span12">
 									<div class="pull-left">
 								<?php
-									while($row = mysql_fetch_array($query)){
+									while($row = mysqli_fetch_array($query)){
 								?>
 									<div id="del<?php echo $row['event_id'];?>" class="alert"><i class="icon-list"></i> <?php echo strtoupper(substr($row['event_title'], 0, 20-2) . '&#133'); ?> 
 									<i class="alert alert-info">

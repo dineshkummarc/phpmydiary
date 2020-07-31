@@ -32,8 +32,8 @@ $id = $session_id;
 		<select name="group" class="chzn-select" required>
 			<option></option>
 					<?php
-					$query = mysql_query("select * from `group` order by name");
-					while($row = mysql_fetch_array($query)){
+					$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from `group` order by name");
+					while($row = mysqli_fetch_array($query)){
 					
 					?>
 					

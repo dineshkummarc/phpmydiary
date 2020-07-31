@@ -20,8 +20,8 @@
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
 							<?php 	
-							$query = mysql_query("select * FROM files where user_id = '$get_id' OR share_id = '$get_id' order by fdatein DESC ")or die(mysql_error());
-									$count = mysql_num_rows($query);
+							$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * FROM files where user_id = '$get_id' OR share_id = '$get_id' order by fdatein DESC ")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									$count = mysqli_num_rows($query);
 							?>
                                 <div id="" class="muted pull-right"><span class="badge badge-info"><?php echo $count; ?></span></div>
                             </div>
@@ -64,8 +64,8 @@
 										<tbody>
 											
                               		<?php
-										$query = mysql_query("select * FROM files where user_id = '$get_id' OR share_id = '$get_id' order by fdatein DESC ")or die(mysql_error());
-										while($row = mysql_fetch_array($query)){
+										$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * FROM files where user_id = '$get_id' OR share_id = '$get_id' order by fdatein DESC ")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+										while($row = mysqli_fetch_array($query)){
 										$id  = $row['file_id'];
 									?>                              
 										<tr>

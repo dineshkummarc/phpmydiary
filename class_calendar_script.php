@@ -36,8 +36,8 @@
 			// US Holidays
 				 events:
 		[
-		<?php $event_query = mysql_query("select * from event where user_id = '$get_id' or user_id = '' ")or die(mysql_error());
-			  while($event_row = mysql_fetch_array($event_query)){
+		<?php $event_query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where user_id = '$get_id' or user_id = '' ")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+			  while($event_row = mysqli_fetch_array($event_query)){
 		?>
         {
             title  : '<?php echo $event_row['event_title']; ?> ',

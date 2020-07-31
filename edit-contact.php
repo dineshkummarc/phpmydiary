@@ -2,18 +2,18 @@
 <?php
 if (isset($_GET['event'])){
 $contact_id = $_GET['event'];
-	$query = mysql_query("select * from  contact where id=$contact_id")or die(mysql_error());
-	$row = mysql_fetch_array($query);
+	$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from  contact where id=$contact_id")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$row = mysqli_fetch_array($query);
 
 		$number   = $row['number'];
 		$name   = $row['name'];
 		$mobile   = $row['mobile'];
-		$email  = mysql_real_escape_string($row['email']);
+		$email  = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $row['email']);
 		$work  = $row['work'];
-		$address  = mysql_real_escape_string($row['address']);
+		$address  = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $row['address']);
 		$school  = $row['school'];
 		$group  = $row['group'];
-		$note = mysql_real_escape_string($row['note']);
+		$note = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $row['note']);
 }
 ?>
 
@@ -40,8 +40,8 @@ $contact_id = $_GET['event'];
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
 								<?php
-								$query = mysql_query("select * from contact where user_id = '$id'")or die(mysql_error());
-									$count = mysql_num_rows($query);
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from contact where user_id = '$id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									$count = mysqli_num_rows($query);
 								?>
                                 <div id="" class="muted"><span class="muted pull-left">ALL CONTACT IN RECORDES </span><span class="muted  pull-right badge badge-info"><?php echo $count; ?></span></div>
                             </div>
@@ -49,7 +49,7 @@ $contact_id = $_GET['event'];
                                 <div class="span12">
 									<div class="pull-left">
 								<?php
-									while($row = mysql_fetch_array($query)){
+									while($row = mysqli_fetch_array($query)){
 								?>
 									<div id="del<?php echo $row['id'];?>" class="alert"><i class="icon-list"></i> <?php echo strtoupper($row['name']); ?> <i class="icon-list"></i> <?php echo strtoupper($row['mobile']); ?> 
 									<i class="alert alert-info">

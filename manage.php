@@ -23,8 +23,8 @@
                                 <div class="span12">
   								<div class="alert alert-info"><i class="icon-info"></i> EVENTS MANAGEMENT PAGE </div>
 								<?php
-								$query = mysql_query("select * from event where user_id = '$session_id'")or die(mysql_error());
-									while($row = mysql_fetch_array($query)){
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where user_id = '$session_id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									while($row = mysqli_fetch_array($query)){
 								?>
 									<div id="del<?php echo $row['event_id'];?>" class="alert"><i class="icon-list"></i> <?php echo strtoupper(substr($row['event_title'], 0, 30-2) . '&#133'); ?> 
 									<i class="alert alert-info">

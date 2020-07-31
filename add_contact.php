@@ -39,13 +39,13 @@ if ((!empty($_FILES["uploaded_file"])) && ($_FILES['uploaded_file']['error'] == 
 //					$name  = mysql_real_escape_string($_POST['name']);
 					$number   = $_POST['number'];
 					$mobile   = $_POST['mobile'];
-					$email  = mysql_real_escape_string($_POST['email']);
+					$email  = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['email']);
 					$work  = $_POST['work'];
-					$address  = mysql_real_escape_string($_POST['address']);
+					$address  = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['address']);
 					$school  = $_POST['school'];
 //					$pix  = $_POST['pix'];
 					$group  = $_POST['group'];
-					$note = mysql_real_escape_string($_POST['note']);
+					$note = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['note']);
 				}
 				echo $time = date("Y-m_d : h:i");
 				$qry2 = "INSERT INTO `contact` (`id`, `user_id`, `name`, `number`, `mobile`, `email`, `work`, `address`, `school`, `pix`, `group`, `note`,`time_add`) VALUES (NULL, $user_id, '$name', '$number', '$mobile', '$email', '$work', '$address', '$school', '$newname', '$group','$note','$time')";
@@ -144,5 +144,5 @@ if ((!empty($_FILES["uploaded_file"])) && ($_FILES['uploaded_file']['error'] == 
     }
 }
 
-mysql_close();
+((is_null($___mysqli_res = mysqli_close($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);
 ?>

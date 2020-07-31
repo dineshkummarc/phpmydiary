@@ -22,8 +22,8 @@
                                 <div class="span12">
   								<div class="alert alert-info"><i class="icon-info"></i> LIST OF EVENTS CAPTION </div>
 								<?php
-								$query = mysql_query("select * from event where user_id = '$session_id'")or die(mysql_error());
-									while($row = mysql_fetch_array($query)){
+								$query = mysqli_query($GLOBALS["___mysqli_ston"], "select * from event where user_id = '$session_id'")or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+									while($row = mysqli_fetch_array($query)){
 								?>
 									<a href="read.php?id=<?php echo  $row["event_id"] ?>"><div class="alert"><i class="icon-list"></i> <?php echo $row['event_title']; ?> <i  class="alert alert-info"><?php echo $row['date_start']; ?></i></div></a>
 								<?php } ?>
