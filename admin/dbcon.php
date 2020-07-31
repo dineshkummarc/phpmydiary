@@ -1,3 +1,6 @@
 <?php
-mysqli_select_db(($GLOBALS["___mysqli_ston"] = mysqli_connect('localhost', 'root', '')), diary)or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+// mysql_select_db('diary',mysql_connect('localhost','root',''))or die(mysql_error());
+ 
+mysqli_connect('localhost','root','', 'diary');
+ 
 ?>
