@@ -7,7 +7,8 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $about = $_POST['about'];
 $sql = "INSERT INTO `tbluser` (`user_id`, `firstname`, `lastname`, `username`, `password`, `location`, `status`, `about`) VALUES (NULL,'$firstname','$lastname','$username','$password','uploads/NO-IMAGE-AVAILABLE.jpg','Registered','$about')";
-$query = mysqli_query($GLOBALS["___mysqli_ston"], $sql)or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+// $query = mysql_query($sql)or die(mysql_error());
+$query = mysqli_query($sql);
 if($query){
 	echo 'true';
 }else{
