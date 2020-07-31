@@ -14,8 +14,8 @@ function DbConnector(){
         $pass = '';
 
         // Connect to the database
-        $this->link = ($GLOBALS["___mysqli_ston"] = mysqli_connect($host,  $user,  $pass));
-        mysqli_select_db($GLOBALS["___mysqli_ston"], $db);
+        $this->link = mysqli_connect($host, $user, $pass, $db);
+        //mysql_select_db($db);
         register_shutdown_function(array(&$this, 'close'));
 
     }
@@ -24,7 +24,7 @@ function DbConnector(){
     function query($query) {
 
         $this->theQuery = $query;
-        return mysqli_query( $this->link, $query);
+        return mysqli_query($query, $this->link);
 
     }
 
@@ -38,7 +38,7 @@ function DbConnector(){
     //*** Function: close, Purpose: Close the connection ***
     function close() {
 
-        ((is_null($___mysqli_res = mysqli_close($this->link))) ? false : $___mysqli_res);
+        mysqli_close($this->link);
 
     }
 	
